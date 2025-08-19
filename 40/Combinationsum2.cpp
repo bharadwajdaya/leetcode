@@ -14,10 +14,14 @@ void backtrack(vector<int>& nums,int currSum,int target,vector<int>& currArr,vec
     }
     for(int i=ind;i<nums.size();i++)
     {
+        if(i>ind && nums[i]==nums[i-1])
+        {
+            continue;
+        }
         int _ele=nums[i];
         currArr.push_back(_ele);
         currSum+=_ele;
-        backtrack(nums,currSum,target,currArr,res,i);
+        backtrack(nums,currSum,target,currArr,res,i+1);
         currSum-=_ele;
         currArr.pop_back();
     }
@@ -28,13 +32,14 @@ vector<vector<int>> findCandidates(vector<int> nums,int target)
     vector<int> curr;
     int currSum=0;
     int ind=0;
+    sort(nums.begin(),nums.end());
     backtrack(nums,currSum,target,curr,res,ind);
     return res;
 }
 int main()
 {
-    vector<int> nums={2,3,6,7};
-    int target=7;
+    vector<int> nums={10,1,2,7,6,1,5};
+    int target=8;
     vector<vector<int>> res=findCandidates(nums,target);
     for(auto& x:res)
     {
