@@ -37,14 +37,14 @@ class LruCache
                     _map.erase(it.first);
                     dll.pop_back();
                 }
-                dll.push_back({key,val});
+                dll.push_front({key,val});
                 _map[key]=dll.begin();
             }
             else
             {
                 auto it=_map[key];
                 dll.erase(it);
-                dll.push_back({key,val});
+                dll.push_front({key,val});
                 _map[key]=dll.begin();
             }
         }
