@@ -1,6 +1,6 @@
 import java.lang.*;
 
-class SortVowels2785
+class SortVowels
 {
     public String sortVowels(String s)
     {
@@ -32,7 +32,7 @@ class SortVowels2785
         return result.toString();
     }
     public static void main(String[] args) {
-        SortVowels2785 sortV=new SortVowels2785();
+        SortVowels sortV=new SortVowels();
         String s="lEetcOde";
         System.out.println(sortV.sortVowels(s));
         
