@@ -16,13 +16,13 @@ class TreeNode
 
 class ValidateBinaryTree
 {
-    public boolean helper(TreeNode root,int min_val,int max_val)
+    public boolean helper(TreeNode root,long min_val,long max_val)
     {
         if(root==null)
         {
             return true;
         }
-        if(root.val < min_val && root.val>max_val )
+        if((long)root.val <= min_val || (long)root.val>=max_val )
         {
             return false;
         }
@@ -30,7 +30,7 @@ class ValidateBinaryTree
     }
     public boolean isValidBST(TreeNode root) 
     {
-        return helper(root,Integer.MIN_VALUE,Integer.MAX_VALUE);
+        return helper(root,Long.MIN_VALUE,Long.MAX_VALUE);
     }
     public static void main(String[] args) {
         ValidateBinaryTree validateBinaryTree=new ValidateBinaryTree();
